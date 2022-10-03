@@ -1,0 +1,14 @@
+---
+export interface Props {
+	class: string;
+}
+
+const { class: className } = Astro.props;
+---
+<header
+  class:list={[
+    className
+]}
+>
+  Hero element
+</header>

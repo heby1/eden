@@ -1,16 +1,13 @@
 ---
 import Logo from '@components/Logo.astro';
 import TopNavigation from '@components/TopNavigation.astro';
-import type { MarkdownLayoutProps } from 'astro';
+import MainNavigation from '@components/MainNavigation.astro';
 
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-
-const posts = await Astro.glob('/src/pages/ajankohtaista/*.md');
-
 ---
 
 <!DOCTYPE html>
@@ -27,17 +24,11 @@ const posts = await Astro.glob('/src/pages/ajankohtaista/*.md');
 			<Logo class="w-[200px]"></Logo>
 			<TopNavigation class=""></TopNavigation>
 		</header>
-
-		<div>
-			<h2>List all posts</h2>
-			{posts.slice(0, 3).map((post) => (
-				<article>
-					<h1>{post.frontmatter.title}</h1>
-					<p>{post.frontmatter.description}</p>
-					<a href={post.url}>Lue lisää</a>
-				</article>
-			))}
-		</div>
+		<header class="p-2 bg-slate-300">
+			<div class="container mx-auto">
+				<MainNavigation class=""></MainNavigation>
+			</div>
+		</header>
 
 		<slot />
 	</body>
