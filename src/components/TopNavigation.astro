@@ -1,0 +1,18 @@
+---
+export interface Props {
+	class: string;
+}
+
+const { class: className } = Astro.props;
+---
+<nav
+  class:list={[
+    className
+]}
+>
+  <ul>
+    <li><a href="/ajankohtaista">Ajankohtaista</a></li>
+    <li><a href="/ota-yhteytta">Ota yhteyttä</a></li>
+  </ul>
+
+</nav>

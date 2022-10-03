@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const posts = await Astro.glob('/src/pages/ajankohtaista/*.md');
+//const tags = [...new Set([].concat.apply([],allPosts.map(post => post.tags)))]
+---
+
+<Layout title="Ajankohtaista">
+	<main>
+		<h1>Ajankohtaista</h1>
+
+    {posts.slice(0, 3).map((post) => (
+      <article>
+        <h1>{post.frontmatter.title}</h1>
+        <p>{post.frontmatter.description}</p>
+        <a href={post.frontmatter.url}>Read more</a>
+      </article>
+    ))}
+
+		<p class="instructions">
+			Check out the <code>src/pages</code> directory to get started.<br />
+			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+		</p>
+	</main>
+</Layout>

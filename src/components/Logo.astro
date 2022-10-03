@@ -1,5 +1,5 @@
 ---
-import logo from './src/assets/logo.png';
+import logo from '@assets/logo.png';
 
 export interface Props {
 	class: string;
@@ -13,5 +13,5 @@ const { class: className } = Astro.props;
     //'flex flex-col p-4 bg-primary-100 text-primary-900 rounded-md'
 ]}
 >
-  <img src={logo} alt="Engineering Den" />
+  <a href="/"><img src={logo} alt="Engineering Den" /></a>
 </div>
