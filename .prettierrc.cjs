@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
-    require.resolve("prettier-plugin-tailwindcss"),
     require.resolve("prettier-plugin-astro"),
+    require.resolve("prettier-plugin-tailwindcss"),
   ],
   overrides: [
     {
@@ -14,6 +14,6 @@ module.exports = {
   tailwindConfig: "./tailwind.config.cjs",
   trailingComma: "es5",
   tabWidth: 2,
-  semi: false,
-  singleQuote: true,
+  semi: true,
+  singleQuote: false,
 };
