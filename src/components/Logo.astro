@@ -1,17 +1,18 @@
 ---
-import logo from '@assets/logo.png';
+import logo from "@assets/logo.png";
 
 export interface Props {
-	class: string;
+  class: string;
 }
 
 const { class: className } = Astro.props;
 ---
+
 <div
   class:list={[
-    className
+    className,
     //'flex flex-col p-4 bg-primary-100 text-primary-900 rounded-md'
-]}
+  ]}
 >
   <a href="/"><img src={logo} alt="Engineering Den" /></a>
 </div>

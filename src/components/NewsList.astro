@@ -1,22 +1,21 @@
 ---
 export interface Props {
-	class: string;
+  class: string;
 }
 
 const { class: className } = Astro.props;
-const posts = await Astro.glob('/src/pages/ajankohtaista/*.md');
+const posts = await Astro.glob("/src/pages/ajankohtaista/*.md");
 ---
-<section
-  class:list={[
-    className
-]}
->
+
+<section class:list={[className]}>
   <h2>List all posts</h2>
-  {posts.slice(0, 3).map((post) => (
-    <article>
-      <h1>{post.frontmatter.title}</h1>
-      <p>{post.frontmatter.description}</p>
-      <a href={post.url}>Lue lisää</a>
-    </article>
-  ))}
+  {
+    posts.slice(0, 3).map((post) => (
+      <article>
+        <h1>{post.frontmatter.title}</h1>
+        <p>{post.frontmatter.description}</p>
+        <a href={post.url}>Lue lisää</a>
+      </article>
+    ))
+  }
 </section>

@@ -1,14 +1,9 @@
 ---
 export interface Props {
-	class: string;
+  class: string;
 }
 
 const { class: className } = Astro.props;
 ---
-<header
-  class:list={[
-    className
-]}
->
-  Hero element
-</header>
+
+<header class:list={[className]}>Hero element</header>
