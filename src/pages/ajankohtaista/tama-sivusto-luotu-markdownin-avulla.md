@@ -1,6 +1,6 @@
 ---
 layout: "@layouts/Layout.astro"
-title: "Ajankohtaista tänään"
+title: "Tämä on jotain aivan uskomatonta poijjaat"
 description: "Täällä on tietoa Markdownista."
 ---
 

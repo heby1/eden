@@ -8,11 +8,11 @@ const posts = await Astro.glob("/src/pages/ajankohtaista/*.md");
 ---
 
 <section class:list={[className]}>
-  <h2>List all posts</h2>
+  <h2>Ajankohtaiset asiat</h2>
   {
     posts.slice(0, 3).map((post) => (
       <article>
-        <h1>{post.frontmatter.title}</h1>
+        <h3>{post.frontmatter.title}</h3>
         <p>{post.frontmatter.description}</p>
         <a href={post.url}>Lue lisää</a>
       </article>

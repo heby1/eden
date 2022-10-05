@@ -1,0 +1,22 @@
+---
+export interface Props {
+  class: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<footer class:list={[className]}>
+  <div class="container mx-auto grid grid-cols-3">
+    <aside>LOGO</aside>
+    <aside>Contacts</aside>
+    <aside>
+      <ul>
+        <li><a href="/">Etusivu</a></li>
+        <li><a href="/esittely">Esittely</a></li>
+        <li><a href="/tapahtumat">Tapahtumat</a></li>
+        <li><a href="/yhteystiedot">Yhteystiedot</a></li>
+      </ul>
+    </aside>
+  </div>
+</footer>
