@@ -6,4 +6,20 @@ export interface Props {
 const { class: className } = Astro.props;
 ---
 
-<header class:list={[className]}>Hero element</header>
+<header class:list={[className]}>
+  <video
+    autoplay
+    loop
+    muted
+    preload="auto"
+    poster="/src/assets/video.jpg"
+    src="/src/assets/video_file_12366844_hd.mp4"></video>
+</header>
+<style>
+  video {
+    vertical-align: middle;
+    object-fit: cover;
+    width: 100% !important;
+    height: 300px !important;
+  }
+</style>

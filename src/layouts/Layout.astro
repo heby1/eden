@@ -2,6 +2,7 @@
 import Logo from "@components/Logo.astro";
 import TopNavigation from "@components/TopNavigation.astro";
 import MainNavigation from "@components/MainNavigation.astro";
+import MobileMenu from "@components/MobileMenu.astro";
 import Footer from "@components/Footer.astro";
 
 export interface Props {
@@ -21,11 +22,14 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header class="container mx-auto grid grid-cols-2 p-2">
-      <Logo class="w-[200px]" />
-      <TopNavigation class="" />
+    <header
+      class="container mx-auto grid grid-cols-2 justify-items-stretch p-2"
+    >
+      <Logo class="w-[100px] justify-self-start sm:w-[160px]" />
+      <TopNavigation class="hidden justify-self-end sm:block" />
+      <MobileMenu class="w-[32px] justify-self-end py-4 mx-2 sm:hidden" />
     </header>
-    <header class="p-2 bg-slate-300">
+    <header class="hidden p-2 bg-slate-300 sm:block">
       <div class="container mx-auto">
         <MainNavigation class="" />
       </div>
@@ -48,9 +52,8 @@ const { title } = Astro.props;
       a {
         @apply text-blue-600 underline;
       }
-
       main {
-        //color: red;
+        @apply container mx-auto p-6;
       }
     </style>
   </body>

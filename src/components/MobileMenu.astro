@@ -1,0 +1,11 @@
+---
+export interface Props {
+  class: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<nav class:list={[className]}>
+  <img src="/src/assets/hamburger-menu-svgrepo-com.svg" alt="" />
+</nav>
