@@ -11,9 +11,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# assets are quite large
-src/assets/
-
 # environment variables
 .env
 .env.production
