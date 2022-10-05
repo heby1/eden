@@ -4,8 +4,47 @@ export interface Props {
 }
 
 const { class: className } = Astro.props;
+
+export function initFunction() {
+  const element = document.getElementById("mobileMenuButton");
+  element?.addEventListener("click", listenerFunction);
+}
+
+function listenerFunction(this: HTMLElement, ev: Event) {
+  ev.preventDefault();
+  this.style.color = "red";
+  console.log("Joo");
+  this.classList.add("hidden");
+}
+
+//const button = document.getElementById("mobileMenuButton");
+
+//button?.addEventListener("click", function handleClick(event) {
+//button.addEventListener("click", () => {
+//  console.log("Joo");
+//});
+//});
+
+//const document: Document = document as Document;
+
+//function openMobileMenu() {
+//var mmb = document.querySelector("#mobileMenuButton");
+//var mm = document.querySelector("#mobileMenuLayer");
+//mmb.addEventListener("click", function () {
+//  this.className = "done";
+//});
+//var mm = document.querySelector("#mobileMenuLayer");
+//mm.classList.remove("hidden");
+//}
 ---
 
 <nav class:list={[className]}>
-  <img src="/src/assets/hamburger-menu-svgrepo-com.svg" alt="" />
+  <button id="mobileMenuButton">
+    <img src="/src/assets/hamburger-menu-svgrepo-com.svg" alt="" />
+  </button>
+  <div id="mobileMenuLayer" class="hidden">
+    <ul>
+      <li><a href="#">Mobiilimenu</a></li>
+    </ul>
+  </div>
 </nav>
