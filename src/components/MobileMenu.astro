@@ -1,4 +1,6 @@
 ---
+import hamburger from "@assets/hamburger-menu-svgrepo-com.svg";
+
 export interface Props {
   class: string;
 }
@@ -40,7 +42,7 @@ function listenerFunction(this: HTMLElement, ev: Event) {
 
 <nav class:list={[className]}>
   <button id="mobileMenuButton">
-    <img src="/src/assets/hamburger-menu-svgrepo-com.svg" alt="" />
+    <img src={hamburger} alt="" />
   </button>
   <div id="mobileMenuLayer" class="hidden">
     <ul>
