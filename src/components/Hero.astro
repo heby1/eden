@@ -10,8 +10,14 @@ const { class: className } = Astro.props;
 ---
 
 <header class:list={[className]}>
-  <video autoplay loop muted preload="auto" poster={videoPoster} src={video}
-  ></video>
+  <video
+    playsinline
+    autoplay
+    loop
+    muted
+    preload="auto"
+    poster={videoPoster}
+    src={video}></video>
 </header>
 <style>
   video {
