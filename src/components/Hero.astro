@@ -1,4 +1,7 @@
 ---
+import video from "@assets/video_file_12366844_hd.mp4";
+import videoPoster from "@assets/video.jpg";
+
 export interface Props {
   class: string;
 }
@@ -7,13 +10,8 @@ const { class: className } = Astro.props;
 ---
 
 <header class:list={[className]}>
-  <video
-    autoplay
-    loop
-    muted
-    preload="auto"
-    poster="/src/assets/video.jpg"
-    src="/src/assets/video_file_12366844_hd.mp4"></video>
+  <video autoplay loop muted preload="auto" poster={videoPoster} src={video}
+  ></video>
 </header>
 <style>
   video {
