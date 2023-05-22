@@ -1,5 +1,7 @@
 ---
 import hamburger from "@assets/hamburger-menu-svgrepo-com.svg";
+import { useState } from 'react';
+
 
 export interface Props {
   class: string;
@@ -7,46 +9,29 @@ export interface Props {
 
 const { class: className } = Astro.props;
 
-export function initFunction() {
-  const element = document.getElementById("mobileMenuButton");
-  element?.addEventListener("click", listenerFunction);
-}
+//const [open, setOpen] = useState(false);
 
-function listenerFunction(this: HTMLElement, ev: Event) {
-  ev.preventDefault();
-  this.style.color = "red";
-  console.log("Joo");
-  this.classList.add("hidden");
-}
-
-//const button = document.getElementById("mobileMenuButton");
-
-//button?.addEventListener("click", function handleClick(event) {
-//button.addEventListener("click", () => {
-//  console.log("Joo");
-//});
-//});
-
-//const document: Document = document as Document;
-
-//function openMobileMenu() {
-//var mmb = document.querySelector("#mobileMenuButton");
-//var mm = document.querySelector("#mobileMenuLayer");
-//mmb.addEventListener("click", function () {
-//  this.className = "done";
-//});
-//var mm = document.querySelector("#mobileMenuLayer");
-//mm.classList.remove("hidden");
-//}
 ---
 
 <nav class:list={[className]}>
   <button id="mobileMenuButton">
     <img src={hamburger} alt="" />
   </button>
-  <div id="mobileMenuLayer" class="hidden">
+  <div id="mobileMenuLayer">
     <ul>
       <li><a href="#">Mobiilimenu</a></li>
     </ul>
   </div>
 </nav>
+
+<script>
+  // Find all buttons with the `alert` class on the page.
+  const buttons = document.querySelectorAll('button#mobileMenuButton');
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      alert('Button was clicked!');
+    });
+  });
+</script>
