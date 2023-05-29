@@ -5,8 +5,28 @@ export interface Props {
 
 const { class: className } = Astro.props;
 ---
+<style>
+  nav {
+    @apply container mx-auto py-2 px-1;
+  }
 
-<nav class:list={[className]}>
+  nav ul {
+    @apply flex flex-row gap-9 list-none mx-6 p-0;
+  }
+
+  nav ul li {
+    @apply m-0 p-0;
+  }
+
+  nav ul li a {
+    @apply no-underline text-gray-800 font-sans font-semibold uppercase;
+  }
+
+  nav ul li a:hover {
+    @apply underline text-gray-600;
+  }
+</style>
+<nav class:list={[className]} id="main-navigation">
   <ul>
     <li><a href="/">Etusivu</a></li>
     <li><a href="/esittely">Esittely</a></li>

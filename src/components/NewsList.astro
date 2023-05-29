@@ -5,13 +5,24 @@ export interface Props {
 
 const { class: className } = Astro.props;
 const posts = await Astro.glob("/src/pages/ajankohtaista/*.md");
+posts.sort((a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
 ---
+<style>
+  section {
+    @apply max-w-5xl bg-slate-100 mx-auto p-3 grid grid-cols-3 gap-3;
+  }
+  h2 {
+    @apply col-span-3 text-2xl font-bold;
+  }
+
+</style>
 
 <section class:list={[className]}>
   <h2>Ajankohtaiset asiat</h2>
   {
     posts.slice(0, 3).map((post) => (
       <article>
+        <p>{post.frontmatter.date}</p>
         <h3>{post.frontmatter.title}</h3>
         <p>{post.frontmatter.description}</p>
         <a href={post.url}>Lue lisää</a>
