@@ -7,10 +7,15 @@ export interface Props {
 
 const { class: className } = Astro.props;
 ---
+<style>
+  a {
+    @apply text-gray-700 underline
+  }
+</style>
 
-<footer class:list={[className]}>
+<footer class:list={[className]} id="master-footer">
   <div
-    class="container text-center mx-auto p-6 gap-4 grid sm:grid-cols-3 sm:text-left"
+    class="container mx-auto p-6 gap-4 grid text-sm sm:grid-cols-3 sm:text-left text-gray-700 content-center text-center items-center"
   >
     <aside>
       <a href="/"
