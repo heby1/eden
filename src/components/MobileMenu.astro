@@ -13,25 +13,95 @@ const { class: className } = Astro.props;
 
 ---
 
+<style>
+  #mobileMenuLayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 100;
+  }
+
+  #mobileMenuLayer ul {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  #mobileMenuLayer ul li {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  #mobileMenuLayer ul li a {
+    font-size: 2rem;
+    text-decoration: none;
+  }
+
+  #mobileMenuLayer ul li a:hover {
+    text-decoration: underline;
+  }
+
+  #mobileMenuLayer span {
+    width: 100%;
+    text-align: right;
+  }
+
+  #mobileMenuLayer span button {
+    width: 100%;
+    text-align: right;
+    padding: 1rem;
+  }
+</style>
+
 <nav class:list={[className]}>
   <button id="mobileMenuButton">
     <img src={hamburger} alt="" />
   </button>
-  <div id="mobileMenuLayer">
+  <div id="mobileMenuLayer" class="hidden">
+    <span>
+      <button id="closeMobileMenuButton">
+      Sulje valikko
+      </button>
+    </span>
     <ul>
-      <li><a href="#">Mobiilimenu</a></li>
+      <li><a href="/">Etusivu</a></li>
+      <li><a href="/esittely">Esittely</a></li>
+      <li><a href="/tapahtumat">Tapahtumat</a></li>
+      <li><a href="/yhteystiedot">Yhteystiedot</a></li>
+      <li><a href="/yhteystiedot">Ajankohtaista</a></li>
+      <li><a href="/ota-yhteytta">Ota yhteyttä</a></li>
     </ul>
   </div>
 </nav>
 
 <script>
-  // Find all buttons with the `alert` class on the page.
-  const buttons = document.querySelectorAll('button#mobileMenuButton');
 
+  const mobileMenuLayer = document.getElementById('mobileMenuLayer');
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const closeMobileMenuButton = document.getElementById('closeMobileMenuButton');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenuLayer.classList.remove('hidden');
+  });
+
+  closeMobileMenuButton.addEventListener('click', () => {
+    mobileMenuLayer.classList.add('hidden');
+  });
+
+  // Find all buttons with the `alert` class on the page.
+  //const buttons = document.querySelectorAll('button#mobileMenuButton');
+/*
   // Handle clicks on each button.
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
-      alert('Button was clicked!');
+      const mobileMenuLayer = document.getElementById('mobileMenuLayer');
+      mobileMenuLayer.classList.remove('hidden');
+      //alert('Button was clicked!');
     });
   });
+  */
 </script>
