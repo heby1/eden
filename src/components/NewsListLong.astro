@@ -8,19 +8,18 @@ const posts = await Astro.glob("/src/pages/ajankohtaista/*.md");
 posts.sort((a, b) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
 ---
 <style>
-  section {
-    @apply mx-auto block bg-slate-100 p-6 sm:grid sm:grid-cols-3 gap-3;
+  article {
+    @apply p-3 grid grid-flow-row gap-3;
   }
   h2 {
-    @apply col-span-3 text-2xl font-bold;
+    @apply text-2xl font-bold;
   }
 
 </style>
 
 <section class:list={[className]}>
-  <h2>Ajankohtaiset asiat</h2>
   {
-    posts.slice(0, 3).map((post) => (
+    posts.slice(0).map((post) => (
       <article>
         <p>{post.frontmatter.date}</p>
         <h3>{post.frontmatter.title}</h3>
