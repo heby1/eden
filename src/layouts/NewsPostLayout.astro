@@ -5,6 +5,8 @@ import MainNavigation from "@components/MainNavigation.astro";
 import MobileMenu from "@components/MobileMenu.astro";
 import Footer from "@components/Footer.astro";
 
+import "@styles/base.scss";
+
 export interface Props {
   title: string;
   frontmatter: {
@@ -53,27 +55,7 @@ const { frontmatter } = Astro.props;
     <Footer class="bg-slate-200" />
 
     <style is:global>
-      h1, h2, h3, h4, h5, h6 {
-        @apply font-sans;
-      }
-      p {
-        @apply font-serif;
-      }
-      h1 {
-        @apply text-2xl font-bold;
-      }
-      h2 {
-        @apply text-xl;
-      }
-      h3 {
-        @apply text-lg;
-      }
-      a {
-        @apply text-blue-600 underline
-      }
-      main {
-        @apply container mx-auto p-6 font-serif;
-      }
+
     </style>
   </body>
 </html>
